@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">You Top Music</string>
+    <string name="home_screen_toolbar_title">YouTop</string>
+
+
+    <!--    Bottom App Bar-->
+    <string name="bottom_bar_home_title">Home</string>
+    <string name="bottom_bar_generies_title">Generies</string>
+    <string name="bottom_bar_search_title">Search</string>
+    <string name="bottom_bar_favorite_title">Favorite</string>
+    <string name="bottom_bar_account_title">Account</string>
+
+    <!--    Home Screen-->
+    <string name="home_screen_title">Recent listened</string>
+    <string name="home_screen_see_all_btn_text">SEE ALL</string>
+    <string name="music_menu_play_list_title">Playlists</string>
+    <string name="music_menu_track_title">Tracks</string>
+    <string name="music_menu_albums_title">Albums</string>
+    <string name="music_menu_artist_title">Artists</string>
+    <string name="music_menu_listened_title">Listened</string>
+    <string name="music_menu_downloads_title">Downloades</string>
+    <string name="track_count_name_formatter">%1d songs</string>
+
+    <!--    Music Track Screen-->
+    <string name="track_like_info_name_formatter">%1d Likes</string>
+    <string name="all_songs_title">All Songs</string>
+
+</resources>
