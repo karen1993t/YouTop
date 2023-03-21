@@ -15,6 +15,7 @@ import com.youtop.home_screen.models.HomeScreenViewState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import org.jetbrains.annotations.VisibleForTesting
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
@@ -36,7 +37,8 @@ internal class HomeScreenViewModel(
         HomeScreenViewState.initial()
     )
 
-    private val viewStateMutableStateFlow =
+    @VisibleForTesting
+    val viewStateMutableStateFlow =
         MutableStateFlow<ViewState<List<AlbumInfoItemUIModel>>>(ViewState.Loading)
 
     fun loadData(limit: Int = DEFAULT_LIMIT_DATA, offset: Int = DEFAULT_OFFSET) {

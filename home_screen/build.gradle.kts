@@ -91,5 +91,9 @@ dependencies {
     // Coil
     implementation(Dependencies.Coil.coil)
 
-
+    // mockito
+    testImplementation(Dependencies.Mockito.INLINE)
+    testImplementation(Dependencies.Mockito.KOTLINE)
+    testImplementation(Dependencies.Coroutines.TEST)
+    testImplementation(project(":test-utils"))
 }

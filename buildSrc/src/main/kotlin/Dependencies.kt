@@ -110,4 +110,12 @@ object Dependencies {
     object Timber {
         const val timber = "com.jakewharton.timber:timber:5.0.1"
     }
+
+    object Mockito{
+        private const val MockitoVersion = "4.1.0"
+        const val CORE = "org.mockito:mockito-core:$MockitoVersion"
+        const val ANDROID = "org.mockito:mockito-android:$MockitoVersion"
+        const val INLINE = "org.mockito:mockito-inline:$MockitoVersion"
+        const val KOTLINE = "org.mockito.kotlin:mockito-kotlin:3.2.0"
+    }
 }

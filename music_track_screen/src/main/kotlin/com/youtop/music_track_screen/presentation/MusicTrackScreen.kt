@@ -36,7 +36,6 @@ import com.youtop.music_track_screen.viewmodel.MusicTrackViewModel
 import org.koin.androidx.compose.koinViewModel
 import org.orbitmvi.orbit.compose.collectSideEffect
 
-
 @Composable
 fun MusicTrackScreen(
     modifier: Modifier,
@@ -62,7 +61,7 @@ fun MusicTrackScreen(
     LaunchedEffect(key1 = musicTrackViewModel) {
         WindowCompat.setDecorFitsSystemWindows(activity.window, true)
         systemUiController.setStatusBarColor(statusBarColor)
-        musicTrackViewModel.loadData(albumId = albumId)
+        musicTrackViewModel.loadData()
     }
     musicTrackViewModel.collectSideEffect { sideEffect ->
         when (sideEffect) {
@@ -279,7 +278,7 @@ fun MusicTrackScreen(
                         action = {
                             TextButton(onClick = {
                                 musicTrackViewModel.apply {
-                                    loadData(albumId)
+                                    loadData()
                                     loadAllSongsData()
                                 }
                                 snackBarHostState.value.currentSnackbarData?.dismiss()

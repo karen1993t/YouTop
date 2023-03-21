@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import org.jetbrains.annotations.VisibleForTesting
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
@@ -39,33 +40,38 @@ internal class MusicTrackViewModel(
     )
 
     companion object {
-        private const val DEFAULT_TRACK_DATA_LIMIT = 10
-        private const val VALID_ALBUM_ID = "62862c2b2eb9cc224736a155"
+        @VisibleForTesting
+        const val DEFAULT_TRACK_DATA_LIMIT = 10
+
+        @VisibleForTesting
+        const val VALID_ALBUM_ID = "62862c2b2eb9cc224736a155"
     }
 
-    private val viewStateMutableStateFlow =
+    @VisibleForTesting
+    val viewStateMutableStateFlow =
         MutableStateFlow<ViewState<MusicTrackUIModel>>(ViewState.Loading)
 
     val allSongsViewState: StateFlow<ViewState<List<SongItemUIModel>>> =
         MutableStateFlow<ViewState<List<SongItemUIModel>>>(ViewState.Loading)
 
 
-    fun loadData(albumId: String) {
+    fun loadData(albumId: String = VALID_ALBUM_ID) {
         viewModelScope.launch {
             // albumId not valid, requested by VALID_ALBUM_ID
             postViewState(ViewState.Loading)
             val response =
                 getTrackDataUseCase.invoke(
-                    parameters = if (albumId.isNotBlank()) VALID_ALBUM_ID else VALID_ALBUM_ID
+                    parameters = albumId
                 )
             postViewState(
                 response.map {
                     uiMapper.mapFrom(input = it)
                 }
-                    .toViewState(isEmpty = { false })
+                    .toViewState()
             )
         }
     }
+
 
     fun loadAllSongsData() {
         viewModelScope.launch {

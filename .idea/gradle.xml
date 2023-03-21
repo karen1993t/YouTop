@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/home_screen" />
             <option value="$PROJECT_DIR$/music_track_screen" />
             <option value="$PROJECT_DIR$/splash_screen" />
+            <option value="$PROJECT_DIR$/test-utils" />
           </set>
         </option>
       </GradleProjectSettings>
