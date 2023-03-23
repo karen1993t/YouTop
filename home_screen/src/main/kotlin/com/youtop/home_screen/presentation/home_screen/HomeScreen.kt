@@ -11,6 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.youtop.core.R
@@ -27,7 +29,7 @@ import org.orbitmvi.orbit.compose.collectSideEffect
 fun HomeScreen(modifier: Modifier, navController: NavController) {
 
     val homeViewModel: HomeScreenViewModel = koinViewModel()
-    val homeScreenViewState by homeViewModel.container.stateFlow.collectAsState()
+    val homeScreenViewState by homeViewModel.container.stateFlow.collectAsStateWithLifecycle(minActiveState = Lifecycle.State.RESUMED)
     val activity = LocalContext.current as Activity
     val statusBarColor: Color = YouTopAppTheme.colors.primaryStatusBarColor
     val systemUiController = rememberSystemUiController()

@@ -51,6 +51,7 @@ object Dependencies {
             "androidx.compose.material3:material3:1.1.0-alpha08"
 
         const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:0.26.0-alpha"
+        const val lifecycle = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0"
 
     }
 
@@ -111,7 +112,7 @@ object Dependencies {
         const val timber = "com.jakewharton.timber:timber:5.0.1"
     }
 
-    object Mockito{
+    object Mockito {
         private const val MockitoVersion = "4.1.0"
         const val CORE = "org.mockito:mockito-core:$MockitoVersion"
         const val ANDROID = "org.mockito:mockito-android:$MockitoVersion"

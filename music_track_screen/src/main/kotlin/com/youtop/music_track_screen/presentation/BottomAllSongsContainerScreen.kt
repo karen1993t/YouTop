@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.youtop.core.R
 import com.youtop.core.models.ViewState
 import com.youtop.core.theme.YouTopAppExerciseTheme
@@ -29,7 +30,7 @@ internal fun BottomAllSongsContainerScreen(
 ) {
     val lazyScrollState = rememberLazyListState()
     val musicTrackViewModel: MusicTrackViewModel = koinViewModel()
-    val allSongViewState by musicTrackViewModel.allSongsViewState.collectAsState()
+    val allSongViewState by musicTrackViewModel.allSongsViewState.collectAsStateWithLifecycle()
 
     LaunchedEffect(key1 = musicTrackViewModel) {
         musicTrackViewModel.loadAllSongsData()

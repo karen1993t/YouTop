@@ -22,6 +22,7 @@ import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import coil.compose.AsyncImagePainter
 import coil.compose.SubcomposeAsyncImage
@@ -45,7 +46,7 @@ fun MusicTrackScreen(
 ) {
 
     val musicTrackViewModel: MusicTrackViewModel = koinViewModel()
-    val musicTrackScreenViewState by musicTrackViewModel.container.stateFlow.collectAsState()
+    val musicTrackScreenViewState by musicTrackViewModel.container.stateFlow.collectAsStateWithLifecycle()
     val activity = LocalContext.current as Activity
     val systemUiController = rememberSystemUiController()
     val statusBarColor: Color = YouTopAppTheme.colors.secondaryStatusBarColor

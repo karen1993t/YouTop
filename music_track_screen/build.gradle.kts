@@ -64,6 +64,8 @@ dependencies {
     implementation(Dependencies.Compose.composeViewModel)
     implementation(Dependencies.Compose.swipeRefresh)
     implementation(Dependencies.Compose.composeMaterial3)
+    implementation(Dependencies.Compose.lifecycle)
+
 
     // Navigation Compose
     implementation(Dependencies.Compose.composeNavigation)
